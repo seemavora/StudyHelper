@@ -9,7 +9,7 @@ const NavBar=()=> {
         return( 
             <nav className="NavBarItems">
                 <div className="logo">
-                <img src={logo} alt="Logo" width="200" height="100"/>               
+                <img src={logo} alt="Logo" width="200" height="100"/>             
                 </div>
                 <ul>
                     {menuItems.map((item, index) => {
