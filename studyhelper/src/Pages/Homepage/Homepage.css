@@ -22,3 +22,7 @@ body::-webkit-scrollbar {
     font-size: 2em;
   }
 }
+
+body {
+  padding-bottom: 0em;
+}
