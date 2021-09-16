@@ -5,13 +5,22 @@ import logo from "./Images/ScribeLogo.png";
 
 console.log(logo);
 
-const NavBar=()=> {
+class NavBar extends React.Component {
+
+    state = { clicked: false }
+
+    handleClick = () => {
+        this.setState({ clicked: !this.state.clicked })
+    }
+
+    render() {
         return( 
-            <nav className="NavBarItems">
+            <nav className="NavbarItems">
                 <div className="logo">
                 <img src={logo} alt="Logo" width="200" height="100"/>             
                 </div>
-                <ul>
+                
+                <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
                     {menuItems.map((item, index) => {
                         return (
                             <li key={index}>
@@ -23,6 +32,7 @@ const NavBar=()=> {
                 </ul>
             </nav>
         )
+    }   
 }
 
 export default NavBar
