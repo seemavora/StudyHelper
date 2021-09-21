@@ -3,13 +3,13 @@ import React from 'react';
 import NavBar from '../NavBar/NavBar';
 import './Cover.css';
 
-import Bug from '../../static/img/bug.svg';
-import Cactus from '../../static/img/cactus.svg';
-import Camera from '../../static/img/camera-alt.svg';
-import background from '../../static/img/stockPhoto.jpg';
+import Bug from '../../static/img/cover/bug.svg';
+import Cactus from '../../static/img/cover/cactus.svg';
+import Camera from '../../static/img/cover/camera-alt.svg';
+import background from '../../static/img/cover/stockPhoto.jpg';
 import logo from '../../static/img/logo.png';
 
-export const Cover = () => {
+const Cover = () => {
   return (
     <div>
       <section className={'showcase'}>
@@ -62,3 +62,5 @@ export const Cover = () => {
     </div>
   );
 };
+
+export default Cover;

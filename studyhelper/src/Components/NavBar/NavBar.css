@@ -1,3 +1,18 @@
-ul {
+ul li {
   list-style: none;
+  display: inline;
+  padding: 0.2em;
+  margin: 1.3em;
+  font-size: 1.1em;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(243, 243, 243);
+  transform: scale(0.5);
+  transition: 0.5s;
+}
+
+a:hover {
+  color: #f8aa63;
 }

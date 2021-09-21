@@ -1,13 +1,13 @@
 import React from 'react';
 import './Body.css';
 
-import lightBulb from '../../static/img/lightbulb.png';
-import nlp from '../../static/img/nlp.png';
-import calendar from '../../static/img/calendar.png';
-import brain from '../../static/img/brain1.png';
-import gear from '../../static/img/gear1.png';
+import lightBulb from '../../static/img/body/lightbulb.png';
+import nlp from '../../static/img/body/nlp.png';
+import calendar from '../../static/img/body/calendar.png';
+import brain from '../../static/img/body/brain1.png';
+import gear from '../../static/img/body/gear1.png';
 
-export const Body = () => {
+const Body = () => {
   return (
     <div>
       <div className='body'>
@@ -84,3 +84,5 @@ export const Body = () => {
     </div>
   );
 };
+
+export default Body;
