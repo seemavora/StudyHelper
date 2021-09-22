@@ -10,9 +10,9 @@ import gear from '../../static/img/body/gear1.png';
 const Body = () => {
   return (
     <div>
-      <div className='body'>
-        <div className='about-us'>
-          <div className='about-us-text'>
+      <div className='body-body'>
+        <div className='body-about-us'>
+          <div className='body-about-us-text'>
             <h1>Create smart note cards from Youtube with a single click </h1>
             <p>
               Using neuro-linguistic programming (NLP), important content is
@@ -20,17 +20,17 @@ const Body = () => {
               media.
             </p>
           </div>
-          <div className='quote-showcase'>
+          <div className='body-quote-showcase'>
             <img src={lightBulb} alt='' />
           </div>
         </div>
 
-        <div className='content'>
-          <div className='content-right content-item'>
+        <div className='body-content'>
+          <div className='body-content-right body-content-item'>
             <div>
               <img src={nlp} alt='' />
             </div>
-            <div id='content-item-text'>
+            <div id='body-content-item-text'>
               <h1>AI Powered</h1>
               <p>
                 NLP is based on three fundamental concepts: neurology, language,
@@ -42,21 +42,21 @@ const Body = () => {
             </div>
           </div>
 
-          <div className='content-left content-item'>
+          <div className='body-content-left body-content-item'>
             <div>
-              <img id='calendar' src={calendar} alt='' />
+              <img id='body-calendar' src={calendar} alt='' />
             </div>
-            <div id='content-item-text'>
+            <div id='body-content-item-text'>
               <h1>Google Calendar</h1>
               <p>Swap this out later for something else if it doesn't happen</p>
             </div>
           </div>
 
-          <div className='content-right content-item'>
+          <div className='body-content-right body-content-item'>
             <div>
               <img src={brain} alt='' />
             </div>
-            <div id='content-item-text'>
+            <div id='body-content-item-text'>
               <h1>Convenience is Yours</h1>
               <p>
                 All users are one click away from generating a personal
@@ -65,11 +65,11 @@ const Body = () => {
             </div>
           </div>
 
-          <div className='content-left content-item'>
+          <div className='body-content-left body-content-item'>
             <div>
               <img src={gear} alt='' />
             </div>
-            <div id='content-item-text'>
+            <div id='body-content-item-text'>
               <h1>Additional Tools</h1>
               <p>Discord bot or something</p>
             </div>

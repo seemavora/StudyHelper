@@ -1,0 +1,62 @@
+.login-showcase header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6em;
+  padding: 30px 30px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-logo {
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 200px;
+  transform: translateY(15%);
+}
+
+.login-showcase {
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+.login-bg-helper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.login-background {
+  transform: translateX(10%);
+  height: 110%;
+  width: 110%;
+  object-fit: cover;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.login-overlay {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 45%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 0em 8px rgba(31, 31, 31, 0.411);
+  z-index: 5;
+}
