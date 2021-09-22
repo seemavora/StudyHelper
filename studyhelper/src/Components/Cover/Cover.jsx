@@ -12,10 +12,10 @@ import logo from '../../static/img/logo.png';
 const Cover = () => {
   return (
     <div>
-      <section className={'showcase'}>
+      <section className='cover-showcase'>
         <header>
-          <img className='logo' src={logo} alt='' />
-          <div className={'toggle'}></div>
+          <img className='cover-logo' src={logo} alt='' />
+          <div className='cover-toggle'></div>
           <NavBar />
         </header>
 
@@ -25,15 +25,15 @@ const Cover = () => {
             type='video/mp4'
           />
         </video> */}
-        <img className='background' src={background} alt='classroom' />
-        <div className='overlay'></div>
+        <img className='cover-background' src={background} alt='classroom' />
+        <div className='cover-overlay'></div>
 
-        <div className='text'>
+        <div className='cover-text'>
           <h2>Learning</h2>
           <h3>One Note Card At A Time</h3>
         </div>
 
-        <ul className='social'>
+        <ul className='cover-social'>
           <li>
             <a href='https://google.com'>
               <img style={{ width: 40, height: 40 }} src={Bug} alt='bug' />
