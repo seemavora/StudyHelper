@@ -1,9 +1,10 @@
 import Registeration from "../../Registeration/Registeration";
+import Homepage from "../../Homepage/Homepage"
 
 export const menuItems = [
     {
         title: "Home",
-        url: "#", //link
+        url: "/Homepage", //link
         cName: "nav-links"
     },
     
