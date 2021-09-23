@@ -1,3 +1,5 @@
+import Registeration from "../../Registeration/Registeration";
+
 export const menuItems = [
     {
         title: "Home",
@@ -13,7 +15,7 @@ export const menuItems = [
 
     {
         title: "Log in",
-        url: "#", //link
+        url: "/Registeration", //link
         cName: "nav-links"
     },
 ]

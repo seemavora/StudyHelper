@@ -5,9 +5,7 @@ import "./Homepage.css";
 export default function Homepage() {
     console.log(NavBar)
     return (
-        <div className="shopping-list">
-            <NavBar />
-            
+        <div className="shopping-list">    
            <h1>Homepage</h1>
         </div>
     );

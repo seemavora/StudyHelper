@@ -17,7 +17,7 @@ class NavBar extends React.Component {
         return( 
             <nav className="NavbarItems">
                 <div className="logo">
-                <img src={logo} alt="Logo" width="200" height="100"/>             
+                <img src={logo} alt="Logo" width="100" height="50"/>             
                 </div>
                 
                 <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
