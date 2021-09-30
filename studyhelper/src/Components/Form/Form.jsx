@@ -9,7 +9,7 @@ export const LoginForm = () => {
   return (
     <div className='form-form'>
       <h2>Login</h2>
-      <form>
+      <form autoComplete='off'>
         <div className='form-item'>
           <img src={user} alt='' />
           <input
@@ -18,7 +18,6 @@ export const LoginForm = () => {
             name='username'
             placeholder='Username'
             className='form-input'
-            autocomplete='off'
           ></input>
         </div>
 
@@ -45,7 +44,7 @@ export const RegistForm = () => {
   return (
     <div className='form-form'>
       <h2>Create Account</h2>
-      <form>
+      <form autoComplete='off'>
         <div className='form-item'>
           <img src={user} alt='' />
           <input
@@ -54,7 +53,6 @@ export const RegistForm = () => {
             name='username'
             placeholder='Username'
             className='form-input'
-            autocomplete='off'
           ></input>
         </div>
 

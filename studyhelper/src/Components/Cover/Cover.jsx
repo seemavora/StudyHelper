@@ -1,22 +1,18 @@
 import React from 'react';
 
-import NavBar from '../NavBar/NavBar';
 import './Cover.css';
 
 import Bug from '../../static/img/cover/bug.svg';
 import Cactus from '../../static/img/cover/cactus.svg';
 import Camera from '../../static/img/cover/camera-alt.svg';
 import background from '../../static/img/cover/stockPhoto.jpg';
-import logo from '../../static/img/logo.png';
 
 const Cover = () => {
   return (
     <div>
       <section className='cover-showcase'>
         <header>
-          <img className='cover-logo' src={logo} alt='' />
           <div className='cover-toggle'></div>
-          <NavBar />
         </header>
 
         {/* <video muted loop autoPlay>
