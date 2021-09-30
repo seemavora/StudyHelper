@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-import NavBar from '../../Components/NavBar/NavBar';
 import { RegistForm } from '../../Components/Form/Form';
 
-import logo from '../../static/img/logo.png';
 import classroom from '../../static/img/login/classroom-2.jpg';
 
 
@@ -26,7 +24,6 @@ export default function Registeration() {
                     <header>
                         {/* <img className='login-logo' src={logo} alt='' /> */}
                         <div className='login-toggle'></div>
-                        <NavBar />
                     </header>
 
                     <div className='login-bg-helper'>
