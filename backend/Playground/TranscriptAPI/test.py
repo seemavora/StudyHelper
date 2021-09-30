@@ -3,6 +3,8 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 outls = []
 tx = YouTubeTranscriptApi.get_transcript('d1KcaycYsRs&ab', languages=['de','en'])
+transcript_list = YouTubeTranscriptApi.list_transcripts('d1KcaycYsRs&ab')
+print(transcript_list)
 for i in tx:
     outtxt = (i['text'])
     outls.append(outtxt)
