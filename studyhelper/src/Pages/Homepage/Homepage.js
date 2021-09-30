@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar/NavBar";
 import "./Homepage.css";
 
 export default function Homepage() {
-    console.log(NavBar)
+
     return (
         <div className="shopping-list">    
            <h1>Homepage</h1>
