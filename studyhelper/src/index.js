@@ -6,15 +6,10 @@ import NavBar from './Pages/components/NavBar/NavBar';
 
 function App() {
   return (
-<<<<<<< HEAD
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       <Router />
     </div>
-=======
-    <Router />
-
->>>>>>> Added some images and working on aligning body text
   );
 }
 
