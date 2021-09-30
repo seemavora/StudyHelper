@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .showcase,
+  .showcase header {
+    padding: 40px;
+  }
+  .text h2 {
+    font-size: 3em;
+  }
+  .text h3 {
+    font-size: 2em;
+  }
+}
+
+body {
+  padding-bottom: 0em;
+}
