@@ -48,20 +48,31 @@ const Registeration2 = () => {
     });
   }, []);
 
-  // const submitHandler = (e) => {
-  //   e.preventDefault();
-  //   console.log(form)
-  //   axios.post("http://localhost:5000/user/signup/", form, {
-  //     headers: {
-  //       "Content-type": "application/json; charset=UTF-8",
-  //     }
-  //   })
-  //     .then(response => {
-  //       console.log(response)
-  //     }).catch(error => {
-  //       console.log(error)
-  //     })
-  // }
+
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    console.log(form)
+    // axios.post("http://localhost:5000/user/signup/", form, {
+    //   headers: {
+    //     "Content-type": "application/json; charset=UTF-8",
+    //   }
+    // })
+    //   .then(response => {
+    //     console.log(response)
+    //   }).catch(error => {
+    //     console.log(error)
+    //   })
+    const response = await fetch('/user/signup/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset-UTF-8'
+      },
+      body: JSON.stringify(form)
+    })
+
+    console.log(response);
+  }
 
   const changeHandler = (e) => {
     const oldState = form;
