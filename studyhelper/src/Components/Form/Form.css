@@ -52,3 +52,13 @@
 .form-pass {
   transform: rotate(-45deg);
 }
+
+.form-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-links a {
+  text-decoration: none;
+  color: #60b2ff;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { menuItems } from "./menuItems"
 import './NavBar.css'
-import logo from "./Images/ScribeLogo.png";
+import logo from "../../static/ScribeLogo.png";
 
 console.log(logo);
 
@@ -14,25 +14,25 @@ class NavBar extends React.Component {
     }
 
     render() {
-        return( 
+        return (
             <nav className="NavbarItems">
                 <div className="logo">
-                <img src={logo} alt="Logo" width="100" height="50"/>             
+                    <img src={logo} alt="Logo" width="100" height="50" />
                 </div>
-                
+
                 <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
                     {menuItems.map((item, index) => {
                         return (
                             <li key={index}>
                                 <a className={item.cName} href={item.url}>
-                                {item.title}
+                                    {item.title}
                                 </a>
                             </li>)
                     })}
                 </ul>
             </nav>
         )
-    }   
+    }
 }
 
 export default NavBar

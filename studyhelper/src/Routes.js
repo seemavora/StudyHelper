@@ -12,7 +12,7 @@ export default function Routes(props) {
       component: Homepage,
     },
     {
-      path: "/Registeration",
+      path: "/Register",
       component: Registeration,
     },
     {
