@@ -1,5 +1,5 @@
-import Registeration from "../../Registeration/Registeration";
-import Homepage from "../../Homepage/Homepage"
+import Registeration from "../../Pages/Registeration/Registeration";
+import Homepage from "../../Pages/Homepage/Homepage"
 
 export const menuItems = [
     {
@@ -7,7 +7,7 @@ export const menuItems = [
         url: "/Homepage", //link
         cName: "nav-links"
     },
-    
+
     {
         title: "Contact Us",
         url: "#", //link

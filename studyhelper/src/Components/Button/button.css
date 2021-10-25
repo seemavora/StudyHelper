@@ -1,5 +1,5 @@
 :root {
-  --primary: #4628ff;
+  --primary: #60b2ff;
   --warning: #ffd028;
   --danger: #eb3f27;
   --success: #75fa83;
@@ -8,7 +8,7 @@
 }
 
 .btn {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   border-radius: 10px;
   cursor: pointer;
@@ -69,10 +69,10 @@
 
 .btn--medium {
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .btn--large {
-  padding: 15px 30px;
+  padding: 30px 60px;
   font-size: 20px;
 }

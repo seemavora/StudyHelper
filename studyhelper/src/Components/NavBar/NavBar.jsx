@@ -16,7 +16,16 @@ const NavBar = () => {
         <li>
           <a href='/registration'>Contact Us</a>
         </li>
-        <li>{page === '/login' ? undefined : <a href='login'>Login</a>}</li>
+        {page === '/login' ? undefined : (
+          <li>
+            <a href='/login'>Login</a>
+          </li>
+        )}
+        {page === '/login' ? (
+          <li>
+            <a href='/register'>Register</a>
+          </li>
+        ) : undefined}
       </ul>
     </div>
   );

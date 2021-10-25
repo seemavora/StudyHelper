@@ -14,13 +14,6 @@ const Cover = () => {
         <header>
           <div className='cover-toggle'></div>
         </header>
-
-        {/* <video muted loop autoPlay>
-          <source
-            src='https://media.istockphoto.com/videos/mens-hands-are-typing-on-the-laptop-keyboard-closeup-video-id1186325137'
-            type='video/mp4'
-          />
-        </video> */}
         <img className='cover-background' src={background} alt='classroom' />
         <div className='cover-overlay'></div>
 

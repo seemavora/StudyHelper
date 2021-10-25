@@ -11,7 +11,7 @@ export default function Routes(props) {
       component: Homepage,
     },
     {
-      path: "/registration",
+      path: "/register",
       component: Registeration,
     },
     {

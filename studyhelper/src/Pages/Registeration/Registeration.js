@@ -6,23 +6,18 @@ import classroom from '../../static/img/login/classroom-2.jpg';
 
 
 export default function Registeration() {
-    const [currentTime, setCurrentTime] = useState(0);
+    // const [currentTime, setCurrentTime] = useState(0);
 
-    useEffect(() => {
-        fetch('/time').then(res => res.json()).then(data => {
-            setCurrentTime(data.time);
-        });
-    }, []);
+    // useEffect(() => {
+    //     fetch('/time').then(res => res.json()).then(data => {
+    //         setCurrentTime(data.time);
+    //     });
+    // }, []);
     return (
         <>
-            <div className="shopping-list">
-                <h1>Registeration</h1>
-                <p>The current time is {currentTime}.</p>
-            </div>
             <div>
                 <section className='login-showcase'>
                     <header>
-                        {/* <img className='login-logo' src={logo} alt='' /> */}
                         <div className='login-toggle'></div>
                     </header>
 
