@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, request
-from api import db
 
 class User:
 
@@ -8,9 +7,10 @@ class User:
 
     # Create the user object
     user = {
-      "name": request.get_json().get("name"),
+      "username": request.get_json().get("username"),
       "email": request.get_json().get("email"),
-      "password": request.get_json().get("password")
+      "password": request.get_json().get("password"),
+      "passwordConfirm": request.get_json().get("passwordConfirm")
     }
 
     # # Encrypt the password
@@ -25,7 +25,23 @@ class User:
 
     return jsonify({
       "message": "Hey I got the data",
-      "name": user['name'],
+      "username": user['username'],
       "email": user['email'],
+      "password": user['password'],
+      "passwordConfirm": user['passwordConfirm']
+      }), 200
+
+  def login(self):
+    print(request.get_json())
+
+    # Create the user object
+    user = {
+      "username": request.get_json().get("username"),
+      "password": request.get_json().get("password")
+    }
+
+    return jsonify({
+      "message": "Hey I got the data",
+      "username": user['username'],
       "password": user['password']
       }), 200
