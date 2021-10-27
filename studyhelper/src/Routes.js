@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Registeration from "./Pages/Registeration/Registeration";
 import Homepage from "./Pages/Homepage/Homepage.jsx"
+import Login from "./Pages/Login/Login"
+
 export default function Routes(props) {
   const routes = [
     {
@@ -9,9 +11,13 @@ export default function Routes(props) {
       component: Homepage,
     },
     {
-      path: "/Registeration",
+      path: "/register",
       component: Registeration,
     },
+    {
+      path: "/login",
+      component: Login
+    }
   ];
 
   return (
