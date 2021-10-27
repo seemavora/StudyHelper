@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from flaskmongo.extensions import mongo
 
 class User:
 
@@ -13,15 +14,20 @@ class User:
       "passwordConfirm": request.get_json().get("passwordConfirm")
     }
 
-    # # Encrypt the password
-    # user["password"] = user["password"]
+    if (user['password'] != user['passwordConfirm']):
+      return jsonify({
+        'message': 'Passwords do not match',
+        'error_ID': 'pass' 
+        }), 400
 
-    # # Check for existing email address
-    # if db.users.find_one({"email": user["email"]}):
-    #   return jsonify({"error": "Email address already in use"}), 400
+    # Check for existing email address
+    if mongo.db.users.find_one({"email": user["email"]}):
+      return jsonify({
+        "message": "Email address already in use",
+        'error_ID': 'email'
+        }), 400
 
-    # if db.users.insert_one(user):
-    #   return jsonify(user), 200
+    mongo.db.users.insert(user)
 
     return jsonify({
       "message": "Hey I got the data",
@@ -34,11 +40,12 @@ class User:
   def login(self):
     print(request.get_json())
 
-    # Create the user object
     user = {
       "username": request.get_json().get("username"),
       "password": request.get_json().get("password")
     }
+
+    # retrievedUser = mongo.db.users.find(user['username'])
 
     return jsonify({
       "message": "Hey I got the data",

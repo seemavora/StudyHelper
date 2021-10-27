@@ -24,6 +24,7 @@ export default function Registeration2() {
     })
 
     console.log(response);
+    console.log(response.json());
   }
 
   const changeHandler = (e) => {

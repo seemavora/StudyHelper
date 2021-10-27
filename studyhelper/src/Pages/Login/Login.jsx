@@ -14,7 +14,7 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('/user/signup/', {
+    const response = await fetch('/user/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset-UTF-8',
@@ -23,6 +23,7 @@ const Login = () => {
     });
 
     console.log(response);
+    console.log(response.json());
   };
 
   const changeHandler = (e) => {
