@@ -1,18 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { RegistForm } from '../../Components/Form/Form';
 
 import classroom from '../../static/img/login/classroom-2.jpg';
 
-
 export default function Registeration() {
-    // const [currentTime, setCurrentTime] = useState(0);
+    const [form, setForm] = useState({
+        username: '',
+        email: '',
+        password: '',
+        passwordConfirm: ''
+    });
 
-    // useEffect(() => {
-    //     fetch('/time').then(res => res.json()).then(data => {
-    //         setCurrentTime(data.time);
-    //     });
-    // }, []);
+    const submitHandler = async (e) => {
+        e.preventDefault();
+
+        const response = await fetch('/user/signup/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json; charset-UTF-8'
+            },
+            body: JSON.stringify(form)
+        })
+
+        console.log(response);
+        console.log(response.json());
+    }
+
+    const changeHandler = (e) => {
+        const oldState = form;
+        setForm({ ...oldState, [e.target.name]: e.target.value })
+    }
+
     return (
         <>
             <div>
@@ -26,11 +45,10 @@ export default function Registeration() {
                     </div>
 
                     <div className='login-overlay'>
-                        <RegistForm />
+                        <RegistForm submit={submitHandler} change={changeHandler} />
                     </div>
                 </section>
             </div>
         </>
     );
 }
-

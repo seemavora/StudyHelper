@@ -1,7 +1,7 @@
 import React from 'react';
 import { menuItems } from "./menuItems"
 import './NavBar.css'
-import logo from "../../static/ScribeLogo.png";
+import logo from "../../static/img/ScribeLogo.png";
 
 console.log(logo);
 
