@@ -4,7 +4,7 @@ import { RegistForm } from '../../Components/Form/Form';
 
 import classroom from '../../static/img/login/classroom-2.jpg';
 
-export default function Registeration2() {
+export default function Registeration() {
   const [form, setForm] = useState({
     username: '',
     email: '',

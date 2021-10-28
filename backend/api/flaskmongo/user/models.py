@@ -2,9 +2,10 @@ from flask import Flask, jsonify, request
 from flaskmongo.extensions import mongo
 
 class User:
-
   def signup(self):
     print(request.get_json())
+
+    user_collection = mongo.db.users
 
     # Create the user object
     user = {
@@ -21,13 +22,14 @@ class User:
         }), 400
 
     # Check for existing email address
-    if mongo.db.users.find_one({"email": user["email"]}):
+    if user_collection.find_one({"email": user["email"]}):
       return jsonify({
         "message": "Email address already in use",
         'error_ID': 'email'
         }), 400
 
-    mongo.db.users.insert(user)
+    delattr(user, 'passwordConfirm')
+    user_collection.insert(user)
 
     return jsonify({
       "message": "Hey I got the data",
@@ -40,15 +42,21 @@ class User:
   def login(self):
     print(request.get_json())
 
+    user_collection = mongo.db.users
+
     user = {
       "username": request.get_json().get("username"),
       "password": request.get_json().get("password")
     }
 
-    # retrievedUser = mongo.db.users.find(user['username'])
+    mongoItem = user_collection.find_one({
+      'username': user['username'],
+      'password': user['password']
+      })
 
     return jsonify({
-      "message": "Hey I got the data",
+      "message": "Hey I got the data AND found it in mongoDB",
       "username": user['username'],
-      "password": user['password']
+      "password": user['password'],
+      'mongoId': str(mongoItem['_id'])
       }), 200
