@@ -6,13 +6,13 @@ const NavBar = () => {
     <>
       <ul>
         <li>
-          <a href='https://www.google.com/'>Home</a>
+          <a href='/'>Home</a>
         </li>
         <li>
-          <a href='https://www.google.com/'>Contact Us</a>
+          <a href='/ContactUs'>Contact Us</a>
         </li>
         <li>
-          <a href='https://www.google.com/'>Login</a>
+          <a href='/Registeration'>Registeration</a>
         </li>
       </ul>
     </>

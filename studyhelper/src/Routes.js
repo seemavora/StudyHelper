@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Registeration from "./Pages/Registeration/Registeration";
-import Homepage from "./Pages/Homepage/Homepage.jsx"
+import Homepage from "./Pages/Homepage/Homepage.jsx";
+import ContactUs from "./Pages/ContactUs/ContactUs";
 export default function Routes(props) {
   const routes = [
     {
@@ -11,6 +12,10 @@ export default function Routes(props) {
     {
       path: "/Registeration",
       component: Registeration,
+    },
+    {
+      path: "/ContactUs",
+      component: ContactUs,
     },
   ];
 
