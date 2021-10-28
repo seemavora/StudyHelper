@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LoginForm } from '../../Components/Form/Form';
 
 import classroom from '../../static/img/login/classroom-2.jpg';
@@ -6,6 +6,31 @@ import classroom from '../../static/img/login/classroom-2.jpg';
 import './Login.css';
 
 const Login = () => {
+  const [form, setForm] = useState({
+    username: '',
+    password: '',
+  });
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch('/user/login/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json; charset-UTF-8',
+      },
+      body: JSON.stringify(form),
+    });
+
+    console.log(response);
+    console.log(response.json());
+  };
+
+  const changeHandler = (e) => {
+    const oldState = form;
+    setForm({ ...oldState, [e.target.name]: e.target.value });
+  };
+
   return (
     <div>
       <section className='login-showcase'>
@@ -18,7 +43,7 @@ const Login = () => {
         </div>
 
         <div className='login-overlay'>
-          <LoginForm />
+          <LoginForm submit={submitHandler} change={changeHandler} />
         </div>
       </section>
     </div>
