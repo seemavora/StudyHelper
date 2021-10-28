@@ -1,8 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import Router from './Routes'
-import NavBar from './Pages/components/NavBar/NavBar';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import "./Pages/ContactUs/ContactUs.css";
+import Router from "./Routes";
+import NavBar from "./Pages/components/NavBar/NavBar";
 
 function App() {
   return (
