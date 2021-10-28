@@ -16,7 +16,7 @@ export const menuItems = [
 
   {
     title: "Log in",
-    url: "/Registeration", //link
+    url: "/Login", //link
     cName: "nav-links",
   },
 ];
