@@ -1,6 +1,8 @@
 import { React, useState, setLoader } from "react";
 import "./ContactUs.css";
 import "../../index.css";
+import Cover from "../../Components/Cover/Cover";
+import NavBar from "../components/NavBar/NavBar";
 // import { db } from "./firebase";
 
 const ContactUs = () => {
@@ -33,40 +35,44 @@ const ContactUs = () => {
   // };
 
   return (
-    <form
-      className="form"
-      // onSubmit={handleSubmit}
-    >
-      <h1>Contact Us</h1>
-
-      <label>Full Name</label>
-      <input
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <label>Your Email Address</label>
-      <input
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      <label>Your Message</label>
-      <textarea
-        placeholder="Type your Message..."
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-      ></textarea>
-
-      <button
-        type="submit"
-        // style={{ background: loader ? ":#ccc" : "rgb(2,2,110)" }}
+    <div>
+      <NavBar />
+      <form
+        className="form"
+        // onSubmit={handleSubmit}
       >
-        Submit
-      </button>
-    </form>
+        <h1>Contact Us</h1>
+
+        <label>Full Name</label>
+        <input
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <label>Your Email Address</label>
+        <input
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+
+        <label>Your Message</label>
+        <textarea
+          placeholder="Type your Message..."
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        ></textarea>
+
+        <button
+          type="submit"
+          href="https://google.com"
+          // style={{ background: loader ? ":#ccc" : "rgb(2,2,110)" }}
+        >
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 
