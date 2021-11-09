@@ -6,6 +6,8 @@ import logo from '../../static/img/logo.png';
 const page = window.location.pathname;
 
 const NavBar = () => {
+  if (page === '/ContactUs') return <></>;
+
   return (
     <div className='navbar-navbar'>
       <img src={logo} alt='' />
