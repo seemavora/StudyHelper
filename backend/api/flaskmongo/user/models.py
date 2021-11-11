@@ -28,7 +28,7 @@ class User:
         'error_ID': 'email'
         }), 400
 
-    user.remove('passwordConfirm')
+    del user['passwordConfirm']
     user_collection.insert(user)
 
     return jsonify({
