@@ -1,39 +1,28 @@
 import React from 'react';
 
-import NavBar from '../NavBar/NavBar';
 import './Cover.css';
 
 import Bug from '../../static/img/cover/bug.svg';
 import Cactus from '../../static/img/cover/cactus.svg';
 import Camera from '../../static/img/cover/camera-alt.svg';
 import background from '../../static/img/cover/stockPhoto.jpg';
-import logo from '../../static/img/logo.png';
 
 const Cover = () => {
   return (
     <div>
-      <section className={'showcase'}>
+      <section className='cover-showcase'>
         <header>
-          <img className='logo' src={logo} alt='' />
-          <div className={'toggle'}></div>
-          <NavBar />
+          <div className='cover-toggle'></div>
         </header>
+        <img className='cover-background' src={background} alt='classroom' />
+        <div className='cover-overlay'></div>
 
-        {/* <video muted loop autoPlay>
-          <source
-            src='https://media.istockphoto.com/videos/mens-hands-are-typing-on-the-laptop-keyboard-closeup-video-id1186325137'
-            type='video/mp4'
-          />
-        </video> */}
-        <img className='background' src={background} alt='classroom' />
-        <div className='overlay'></div>
-
-        <div className='text'>
+        <div className='cover-text'>
           <h2>Learning</h2>
           <h3>One Note Card At A Time</h3>
         </div>
 
-        <ul className='social'>
+        <ul className='cover-social'>
           <li>
             <a href='https://google.com'>
               <img style={{ width: 40, height: 40 }} src={Bug} alt='bug' />

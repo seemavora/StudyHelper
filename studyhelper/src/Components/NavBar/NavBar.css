@@ -1,4 +1,26 @@
-ul li {
+.navbar-navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+  height: 4em;
+  z-index: 100;
+}
+
+.navbar-navbar img {
+  margin-left: 1em;
+  height: 100%;
+}
+
+.navbar-nav-links {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.navbar-nav-links li {
   list-style: none;
   display: inline;
   padding: 0.2em;
@@ -6,13 +28,13 @@ ul li {
   font-size: 1.1em;
 }
 
-a {
+.navbar-nav-links li a {
   text-decoration: none;
   color: rgb(243, 243, 243);
   transform: scale(0.5);
   transition: 0.5s;
 }
 
-a:hover {
+.navbar-nav-links li a:hover {
   color: #f8aa63;
 }

@@ -1,8 +1,8 @@
-import { React, useState, setLoader } from "react";
+import { React, useState } from "react";
 import "./ContactUs.css";
 import "../../index.css";
 import { useHistory } from "react-router-dom";
-import NavBar from "../components/NavBar/NavBar";
+import NavBar from "../../Components/NavBar (2)/NavBar";
 // import { db } from "./firebase";
 
 const ContactUs = () => {
@@ -10,11 +10,11 @@ const ContactUs = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const history = useHistory();
-  
-  const handleRoute = () =>{ 
+
+  const handleRoute = () => {
     history.push("/");
   }
-  
+
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   setLoader(true);
@@ -44,7 +44,7 @@ const ContactUs = () => {
       <NavBar />
       <form
         className="form"
-        // onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
       >
         <h1>Contact Us</h1>
 
@@ -72,7 +72,7 @@ const ContactUs = () => {
         <button
           type="submit"
           onClick={handleRoute}
-          // style={{ background: loader ? ":#ccc" : "rgb(2,2,110)" }}
+        // style={{ background: loader ? ":#ccc" : "rgb(2,2,110)" }}
         >
           Submit
         </button>
