@@ -10,31 +10,33 @@
   z-index: 100;
 }
 
-.navbar-navbar img {
+.navbar-logo {
   margin-left: 1em;
   height: 100%;
+  transform: translateY(5%);
 }
 
 .navbar-nav-links {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
-.navbar-nav-links li {
+  height: 100%;
+  max-height: max-content;
   list-style: none;
-  display: inline;
-  padding: 0.2em;
-  margin: 1.3em;
-  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
 }
 
-.navbar-nav-links li a {
+.navbar-nav-links > li {
+  font-size: 1.1em;
+  margin: 0 1.5em;
+}
+
+.navbar-nav-links > li > a {
   text-decoration: none;
-  color: rgb(243, 243, 243);
+  color: rgb(255, 255, 255);
   transform: scale(0.5);
   transition: 0.5s;
 }
 
-.navbar-nav-links li a:hover {
+.navbar-nav-links > li > a:hover {
   color: #f8aa63;
 }

@@ -1,0 +1,32 @@
+.portal-body {
+  background-color: #ffb672;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portal-form {
+  margin-top: 4em;
+}
+
+.portal-submit {
+  display: flex;
+}
+
+.portal-radio {
+  margin-top: 1.5em;
+  display: flex;
+}
+
+.portal-radio > div {
+  margin-right: 1em;
+}
+
+.portal-submit-button {
+  margin-top: 1em;
+  align-self: flex-end;
+  margin-left: auto;
+}

@@ -1,0 +1,12 @@
+.search-view > form > input {
+  width: 40em;
+  height: 4em;
+  border-radius: 10px;
+  border-style: none;
+  border: 1px solid #53546a;
+  padding-left: 1em;
+}
+
+.search-view > form > input:focus {
+  outline: none;
+}
