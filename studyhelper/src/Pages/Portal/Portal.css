@@ -1,0 +1,56 @@
+.portal-body {
+  background-color: #ffb672;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portal-form {
+  margin-top: 4em;
+}
+
+.portal-submit {
+  display: flex;
+  width: 40em;
+}
+
+.portal-radio {
+  margin-top: 1.5em;
+  display: flex;
+}
+
+.portal-radio > div {
+  margin-right: 1em;
+}
+
+.portal-radio > div > label {
+  padding-left: 0.3em;
+}
+
+.portal-submit-button {
+  margin-top: 1em;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.portal-text-flavor {
+  background-color: #fff;
+  margin: 1em;
+  width: 80em;
+  height: 10em;
+  border-radius: 15px;
+}
+
+.portal-text-frame {
+  border-top: 1px solid #a6a8bf;
+  border-bottom: 1px solid #a6a8bf;
+  width: 95%;
+  height: 85%;
+  position: relative;
+  top: 50%;
+  margin: auto;
+  transform: translate(0, -50%);
+}

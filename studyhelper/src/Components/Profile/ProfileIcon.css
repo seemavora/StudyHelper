@@ -1,0 +1,60 @@
+.profile-icon {
+  width: 50px;
+  transform: translateY(5%);
+}
+
+.profile-button {
+  border-style: none;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.profile-button:hover {
+  cursor: pointer;
+}
+
+.profile-menu {
+  width: 11em;
+  height: 8em;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 4em;
+  right: 1.6em;
+  border-radius: 8%;
+  box-shadow: 3px 3px 5px rgba(34, 34, 34, 0.418);
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+
+  /* height: 8em;
+  transition: height 2s ease; */
+}
+
+.fade-out {
+  opacity: 0;
+  height: 0;
+  transition: opacity 0.3s ease, height 0s linear 0.3s;
+  overflow: hidden;
+}
+
+.profile-menu-item > a {
+  display: flex;
+  margin-top: 8px;
+}
+
+.profile-menu-item img {
+  width: 20px;
+  height: 20px;
+  margin: 8px 20px;
+}
+
+.profile-menu-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.profile-menu-item a p {
+  line-height: 200%;
+  text-align: center;
+}
