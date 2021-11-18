@@ -39,7 +39,7 @@
 .portal-text-flavor {
   background-color: #fff;
   margin: 1em;
-  width: 80em;
+  width: 75em;
   height: 10em;
   border-radius: 15px;
 }
@@ -53,4 +53,42 @@
   top: 50%;
   margin: auto;
   transform: translate(0, -50%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.portal-text-item {
+  display: flex;
+  width: 250px;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.portal-text-item > img {
+  width: 15em;
+}
+
+.portal-text-item > p {
+  width: 40em;
+  transform: translate(0, 20%);
+  margin-left: 1em;
+}
+
+.portal-instruct {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2em;
+  width: 50%;
+}
+
+.portal-instruct-item {
+  display: inherit;
+}
+
+.portal-instruct-item > img {
+  width: 4em;
+}
+
+.portal-instruct-item > p {
+  transform: translate(0, 25%);
 }

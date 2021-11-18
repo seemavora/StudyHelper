@@ -5,6 +5,8 @@ import { Button } from '../../Components/Button/Button';
 import Book from '../../static/img/portal/book.svg';
 import TextBook from '../../static/img/portal/textbooks.svg';
 import Verified from '../../static/img/portal/verified.svg';
+import One from '../../static/img/portal/one.png';
+import Two from '../../static/img/portal/two.png';
 
 import './Portal.css';
 
@@ -50,6 +52,17 @@ const Portal = () => {
             <img src={Book} alt='book' />
             <p>Thousands of valuable notecards in seconds</p>
           </div>
+        </div>
+      </div>
+
+      <div className='portal-instruct'>
+        <div className='portal-instruct-item'>
+          <img src={One} alt='one' />
+          <p>Enter any Youtube URL into the search bar above.</p>
+        </div>
+        <div className='portal-instruct-item'>
+          <img src={Two} alt='two' />
+          <p>And hit submit!</p>
         </div>
       </div>
     </div>
