@@ -1,0 +1,79 @@
+.summary-container {
+  width: 75%;
+  background-color: #fff;
+  border-radius: 15px;
+  margin-top: 1em;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.507);
+  margin-bottom: 5em;
+}
+
+.summary-hide {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.summary-show {
+  opacity: 100;
+  min-height: 50em;
+  transition: opacity 0.4s ease;
+  overflow: hidden;
+}
+
+.summary-header {
+  width: 95%;
+  display: flex;
+  min-height: 3em;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.summary-header-edit {
+  height: 2em;
+  margin-left: auto;
+}
+
+.summary-header-edit > img:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+}
+
+.summary-header-edit > img {
+  height: 2em;
+  transition: transform 0.3s ease;
+}
+
+.summary-header-title {
+  font-size: 15px;
+  transform: translateY(50%);
+}
+
+.summary-header-save {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.summary-content {
+  width: 95%;
+  height: 44em;
+  border-top: 1px solid #a6a8bf;
+  border-bottom: 1px solid #a6a8bf;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.summary-content-wrapper {
+  font-size: 18px;
+  width: 90%;
+  margin: 1em auto 0 auto;
+}
+
+.summary-content-item {
+}
+
+.summary-content-item:hover {
+  cursor: pointer;
+  background-color: yellow;
+}
