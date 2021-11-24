@@ -6,14 +6,16 @@ import './Summary.css';
 
 const Summary = (props) => {
   const [render, setRender] = useState(false);
-  const [data, setData] = useState([]);
+  const [summary, setSummary] = useState([]);
+  const [dictActive, setDictActive] = useState(false);
+  const [dictContent, setDictContent] = useState(undefined);
 
   useEffect(
     (x) => {
       if (props.view) {
         setTimeout((x) => {
           setRender(true);
-          setData(props.data.message.split(' '));
+          setSummary(props.data.message.split(' '));
         }, 500);
       }
     },
@@ -34,20 +36,27 @@ const Summary = (props) => {
       body: JSON.stringify({
         word: dictionaryURL,
       }),
+    }).then((response) => {
+      return response.json().then((response) => ({ response }));
     });
 
-    console.log(response.json());
+    setDictActive(true);
+    setDictContent(response);
+    console.log(response);
+  };
 
-    // response
-    //   .json()
-    //   .catch()
-    //   .then((e) => {
-    //     console.log(e);
-    //   });
+  const disableOverlay = () => {
+    setDictActive(false);
   };
 
   return (
-    <div className={`summary-container summary-${render ? 'show' : 'hide'}`}>
+    <div
+      className={`summary-container summary-${
+        render ? 'show' : 'hide'
+      } summary-container-overlay-${dictActive ? 'show' : 'hide'}
+      `}
+      onClick={disableOverlay}
+    >
       <div className='summary-header'>
         <div className='summary-header-title'>
           <p>
@@ -66,10 +75,11 @@ const Summary = (props) => {
           />
         </div>
       </div>
+
       <div className='summary-content'>
         <div className='summary-content-wrapper'>
           <div>
-            {data.map((x, index) => {
+            {summary.map((x, index) => {
               return (
                 <span key={index}>
                   <span
@@ -85,6 +95,33 @@ const Summary = (props) => {
           </div>
         </div>
       </div>
+
+      {dictActive && dictContent ? (
+        <div className='portal-dict-popup'>
+          <div className='portal-dict-content'>
+            <div className='portal-dict-title'>
+              {`${dictContent.response[0].word} | ${dictContent.response[0].phonetic}`}
+            </div>
+            <div className='portal-dict-body'>
+              <p>{`Part of Speech: ${dictContent.response[0].meanings[0].partOfSpeech}`}</p>
+              {dictContent.response[0].meanings[0].definitions.map(
+                (item, index) => {
+                  return (
+                    <>
+                      <p>{`Definition (${index}): ${item.definition}`}</p>
+                      {`Synonyms: ${item.synonyms.map((s) => {
+                        return ' ' + s;
+                      })}`}
+                    </>
+                  );
+                }
+              )}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
