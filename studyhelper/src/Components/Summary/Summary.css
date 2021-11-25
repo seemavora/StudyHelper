@@ -9,14 +9,16 @@
 
 .summary-hide {
   height: 0;
+  min-height: 0;
   opacity: 0;
   overflow: hidden;
 }
 
 .summary-show {
   opacity: 100;
-  min-height: 50em;
-  transition: opacity 0.4s ease;
+  min-height: 40em;
+  height: 40em;
+  transition: opacity 0.5s ease;
   overflow: hidden;
 }
 
@@ -56,7 +58,7 @@
 
 .summary-content {
   width: 95%;
-  height: 44em;
+  height: 85%;
   border-top: 1px solid #a6a8bf;
   border-bottom: 1px solid #a6a8bf;
   margin-left: auto;

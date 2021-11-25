@@ -51,12 +51,13 @@ const Summary = (props) => {
 
   return (
     <div
-      className={`summary-container summary-${
-        render ? 'show' : 'hide'
-      } summary-container-overlay-${dictActive ? 'show' : 'hide'}
+      className={`summary-container summary-${render ? 'show' : 'hide'}
       `}
-      onClick={disableOverlay}
     >
+      <div
+        className={`summary-container-overlay-${dictActive ? 'show' : 'hide'}`}
+        onClick={disableOverlay}
+      ></div>
       <div className='summary-header'>
         <div className='summary-header-title'>
           <p>

@@ -10,6 +10,7 @@ const Portal = () => {
   const [link, setLink] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [summary, setSummary] = useState('');
+  const [edit, setEdit] = useState(false);
 
   const inputChange = (e) => {
     setLink(e.target.value);
@@ -48,6 +49,15 @@ const Portal = () => {
           setSubmitted(true);
         }
       });
+  };
+
+  const editContent = () => {
+    setEdit(true);
+  };
+
+  const editDone = () => {
+    setSummary('something');
+    setEdit(false);
   };
 
   return (
