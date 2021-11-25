@@ -1,0 +1,113 @@
+.summary-container {
+  width: 75%;
+  background-color: #fff;
+  border-radius: 15px;
+  margin-top: 1em;
+  box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.507);
+  margin-bottom: 5em;
+}
+
+.summary-hide {
+  height: 0;
+  min-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.summary-show {
+  opacity: 100;
+  min-height: 40em;
+  height: 40em;
+  transition: opacity 0.5s ease;
+  overflow: hidden;
+}
+
+.summary-header {
+  width: 95%;
+  display: flex;
+  min-height: 3em;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.summary-header-edit {
+  height: 2em;
+  margin-left: auto;
+}
+
+.summary-header-edit > img:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+}
+
+.summary-header-edit > img {
+  height: 2em;
+  transition: transform 0.3s ease;
+}
+
+.summary-header-title {
+  font-size: 15px;
+  transform: translateY(50%);
+}
+
+.summary-header-save {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.summary-content {
+  width: 95%;
+  height: 85%;
+  border-top: 1px solid #a6a8bf;
+  border-bottom: 1px solid #a6a8bf;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.summary-content-wrapper {
+  font-size: 18px;
+  width: 90%;
+  margin: 1em auto 0 auto;
+}
+
+.summary-content-item:hover {
+  cursor: pointer;
+  background-color: yellow;
+}
+
+.summary-container-overlay-show {
+  background-color: rgb(214, 214, 214);
+  transition: background-color 0.4s ease;
+}
+
+.summary-container-overlay-hide {
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.4s ease;
+}
+
+.portal-dict-popup {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 30em;
+  min-height: 20em;
+  border-radius: 15px;
+  box-shadow: 4px 4px 5px rgba(27, 27, 27, 0.555);
+  background-color: #7dc1e7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portal-dict-content {
+  width: 90%;
+  color: rgb(255, 255, 255);
+}
+
+.portal-dict-title {
+  margin-top: 5px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
