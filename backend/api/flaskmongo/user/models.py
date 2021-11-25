@@ -75,14 +75,15 @@ class User:
 
     #store the ID (or email) in localStorage
 
-    print(id)
+    print(str(id))
     print(password)
     print(email)
 
     return jsonify({
       "message": "Hey I got the data",
       "username": user['username'],
-      "password": user['password']
+      "password": user['password'],
+      "ID": str(id)
       }), 200
 
 #def signout(self):
