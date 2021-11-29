@@ -7,14 +7,13 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 class Api:
   def summary(self):
-    print(request.get_json())
-    youtube_video = "https://www.youtube.com/watch?v=JNL6f1xkie4"
+    youtube_video = request.get_json()['message']
     video_id = youtube_video.split("=")[1]
     transcript = YouTubeTranscriptApi.get_transcript(video_id)
     result = ""
     for i in transcript:
         result += ' ' + i['text']
-    #print(result)
+    
     
 
     summarizer = pipeline('summarization')
@@ -30,14 +29,20 @@ class Api:
         out = out[0]
         out = out['summary_text']
         summarized_text.append(out)
-    # print(request.get_json())
+    print("********************************")
+    print(summarized_text)
+    strSummary = str(summarized_text)
+    print(request.get_json())
 
     try:
       basepath = path.dirname(__file__)
-      filepath = path.abspath(path.join(basepath, "dummythiccsum.txt"))
-
-      summary_file = open(filepath)
-      summary_data = summary_file.write(summarized_text)
+      filepath = path.abspath(path.join(basepath, "sample.txt"))
+      print("here")
+      summary_file = open(filepath,'w')
+      summary_data = summary_file.write(strSummary)
+      print("woooohooo")
+      summary_file.close()
+      summary_file = open(filepath,'r')
       summary_data = summary_file.read()
       summary_file.close()
 
