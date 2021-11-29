@@ -85,8 +85,3 @@ class User:
       "password": user['password'],
       "ID": str(id)
       }), 200
-
-#def signout(self):
-#  session.clear()
-  #route for sign out
-#  return redirect('/')
