@@ -24,3 +24,4 @@ for i in range(0,num_iters +1):
     out = out[0]
     out = out['summary_text']
     summarized_text.append(out)
+print(summarized_text)
