@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LoginForm } from '../../Components/Form/Form';
 
 import classroom from '../../static/img/login/classroom-2.jpg';
@@ -10,7 +10,7 @@ const Login = () => {
     username: '',
     password: '',
   });
-
+  
   const submitHandler = async (e) => {
     e.preventDefault();
 
@@ -22,8 +22,11 @@ const Login = () => {
       body: JSON.stringify(form),
     });
 
-    console.log(response);
-    console.log(response.json());
+    //local storage for user ID
+    response.json().then((e) => {
+      console.log(e.ID);
+      localStorage.setItem('ID', e.ID);
+    });
   };
 
   const changeHandler = (e) => {

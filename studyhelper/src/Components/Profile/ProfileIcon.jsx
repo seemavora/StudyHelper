@@ -5,6 +5,7 @@ import Icon from '../../static/img/profile/icon3.png';
 import MiniIcon from '../../static/img/profile/mini-icon.png';
 import Collection from '../../static/img/profile/book2.png';
 import SignOut from '../../static/img/profile/exit.png';
+import Logout from '../../Pages/Logout/Logout'
 
 const ProfileIcon = () => {
   const [profile, setProfile] = useState(false);
@@ -38,7 +39,8 @@ const ProfileIcon = () => {
           </a>
         </div>
         <div className='profile-menu-item'>
-          <a href='/'>
+          <a href='/' onClick = {Logout}>
+            
             <img src={SignOut} alt='signout' />
             <p>Sign Out</p>
           </a>
