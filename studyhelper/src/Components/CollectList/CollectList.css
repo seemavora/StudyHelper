@@ -1,0 +1,18 @@
+.collList-body {
+  width: 100%;
+  background-color: #fff;
+  min-height: 10em;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.collList-header {
+  width: 95%;
+  font-weight: 500;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr 1fr 0.5fr;
+  border-bottom: 2px solid black;
+  margin-top: 1.5em;
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import { Button } from '../../Components/Button/Button';
 import PortalPreSubmit from '../../Components/PortalPreSubmit/PortalPreSubmit';
@@ -12,6 +12,8 @@ const Portal = () => {
   const [summary, setSummary] = useState('');
   const [edit, setEdit] = useState(false);
 
+  const newSummary = useRef();
+
   const inputChange = (e) => {
     console.log(e.target.value);
     setLink(e.target.value);
@@ -21,8 +23,7 @@ const Portal = () => {
     e.preventDefault();
     console.log(link);
 
-    const dummyLink = setLink;
-    console.log(setLink)
+    console.log(setLink);
     const response = await fetch('/api/summary/', {
       method: 'POST',
       headers: {
@@ -53,13 +54,13 @@ const Portal = () => {
       });
   };
 
-  const editContent = () => {
-    setEdit(true);
-  };
-
-  const editDone = () => {
-    setSummary('something');
-    setEdit(false);
+  const toggleEdit = () => {
+    if (!edit) {
+      setEdit(true);
+    } else {
+      setSummary({ message: newSummary.current.value });
+      setEdit(false);
+    }
   };
 
   return (
@@ -79,7 +80,13 @@ const Portal = () => {
         </div>
       </div>
       <PortalPreSubmit view={submitted === true ? 'hide' : 'show'} />
-      <Summary view={submitted} data={summary} />
+      <Summary
+        view={submitted}
+        data={summary}
+        edit={toggleEdit}
+        editting={edit}
+        setRef={newSummary}
+      />
     </div>
   );
 };
