@@ -13,20 +13,22 @@ const Portal = () => {
   const [edit, setEdit] = useState(false);
 
   const inputChange = (e) => {
+    console.log(e.target.value);
     setLink(e.target.value);
   };
 
   const getSummary = async (e) => {
     e.preventDefault();
+    console.log(link);
 
-    const dummyLink = 'testlink';
-
+    const dummyLink = setLink;
+    console.log(setLink)
     const response = await fetch('/api/summary/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset-UTF-8',
       },
-      body: JSON.stringify({ message: dummyLink }),
+      body: JSON.stringify({ message: link }),
     });
 
     let message = response
