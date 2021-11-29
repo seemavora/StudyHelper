@@ -28,7 +28,7 @@ class User:
         'error_ID': 'email'
         }), 400
 
-    delattr(user, 'passwordConfirm')
+    # delattr(user, 'passwordConfirm')
     user_collection.insert(user)
 
     return jsonify({
