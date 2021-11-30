@@ -73,6 +73,7 @@ const Summary = (props) => {
               children='Save'
               buttonStyle='btn--primary--solid'
               buttonSize='btn--medium'
+              onClick={(e) => props.save(summary)}
             />
           </div>
         </div>

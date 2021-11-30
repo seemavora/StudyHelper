@@ -10,7 +10,7 @@ const Login = () => {
     username: '',
     password: '',
   });
-  
+
   const submitHandler = async (e) => {
     e.preventDefault();
 
@@ -26,6 +26,7 @@ const Login = () => {
     response.json().then((e) => {
       console.log(e.ID);
       localStorage.setItem('ID', e.ID);
+      window.location = '/Collection';
     });
   };
 

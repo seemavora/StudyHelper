@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
 import CollectList from '../../Components/CollectList/CollectList';
 import { Button } from '../../Components/Button/Button';
-import { useHistory } from 'react-router-dom';
+
+import { collection } from '../../Components/CollectHelp/CollectHelp';
 
 import './Collection.css';
 
 const Collection = (props) => {
-  const history = useHistory();
-
-  const collectPopup = () => {
-    history.push('/');
-  };
-
   return (
     <div className='collect-body'>
       <div className='collect-body-wrapper'>
@@ -30,7 +25,7 @@ const Collection = (props) => {
           </div>
         </div>
 
-        <CollectList />
+        <CollectList list={collection} />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import { Button } from '../../Components/Button/Button';
 import PortalPreSubmit from '../../Components/PortalPreSubmit/PortalPreSubmit';
@@ -13,6 +13,15 @@ const Portal = () => {
   const [edit, setEdit] = useState(false);
 
   const newSummary = useRef();
+
+  useEffect(() => {
+    const selectSum = localStorage.getItem('sum-selected');
+    if (selectSum) {
+      setSummary({ message: localStorage.getItem('sum-message') });
+      setSubmitted(true);
+      localStorage.removeItem('sum-selected');
+    }
+  }, []);
 
   const inputChange = (e) => {
     console.log(e.target.value);
@@ -63,6 +72,16 @@ const Portal = () => {
     }
   };
 
+  const save = (e) => {
+    localStorage.setItem(
+      'sum-meta',
+      `lorem epsum something something;Summary;12/3/21;${link}`
+    );
+
+    localStorage.setItem('sum-message', summary.message);
+    window.location = '/Collection';
+  };
+
   return (
     <div className='portal-body'>
       <div className='portal-form'>
@@ -86,6 +105,7 @@ const Portal = () => {
         edit={toggleEdit}
         editting={edit}
         setRef={newSummary}
+        save={save}
       />
     </div>
   );

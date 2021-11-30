@@ -30,6 +30,12 @@ const portalStyle = {
 const NavBar = (props) => {
   if (page === '/ContactUs') return <></>;
 
+  const id = localStorage.getItem('ID');
+
+  if (!id && profLogic.includes(page)) {
+    window.location = '/';
+  }
+
   return (
     <div
       className='navbar-navbar'
