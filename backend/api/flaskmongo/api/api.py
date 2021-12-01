@@ -20,7 +20,7 @@ class Api:
 
 
     num_iters = int(len(result)/1000)
-    summarized_text = []
+    summarized_text = ''
     for i in range(0,num_iters +1):
         start = 0
         start = (i*1000)
@@ -28,7 +28,8 @@ class Api:
         out = summarizer(result[start:end])
         out = out[0]
         out = out['summary_text']
-        summarized_text.append(out)
+        out = str(out)
+        summarized_text= summarized_text+ out
     print("********************************")
     print(summarized_text)
     strSummary = str(summarized_text)
