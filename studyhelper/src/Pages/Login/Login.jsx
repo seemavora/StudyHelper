@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { LoginForm } from '../../Components/Form/Form';
 
 import classroom from '../../static/img/login/classroom-2.jpg';

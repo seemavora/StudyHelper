@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CollectList from '../../Components/CollectList/CollectList';
 import { Button } from '../../Components/Button/Button';
 
