@@ -2,16 +2,48 @@ from flask import Flask, jsonify, request, Response
 from flaskmongo.extensions import mongo
 import requests
 from os import path
+from transformers import pipeline
+from youtube_transcript_api import YouTubeTranscriptApi
 
 class Api:
   def summary(self):
+    youtube_video = request.get_json()['message']
+    video_id = youtube_video.split("=")[1]
+    transcript = YouTubeTranscriptApi.get_transcript(video_id)
+    result = ""
+    for i in transcript:
+        result += ' ' + i['text']
+    
+    
+
+    summarizer = pipeline('summarization')
+
+
+    num_iters = int(len(result)/1000)
+    summarized_text = ''
+    for i in range(0,num_iters +1):
+        start = 0
+        start = (i*1000)
+        end = (i+1) *1000
+        out = summarizer(result[start:end])
+        out = out[0]
+        out = out['summary_text']
+        out = str(out)
+        summarized_text= summarized_text+ out
+    print("********************************")
+    print(summarized_text)
+    strSummary = str(summarized_text)
     print(request.get_json())
 
     try:
       basepath = path.dirname(__file__)
-      filepath = path.abspath(path.join(basepath, "dummythiccsum.txt"))
-
-      summary_file = open(filepath)
+      filepath = path.abspath(path.join(basepath, "sample.txt"))
+      print("here")
+      summary_file = open(filepath,'w')
+      summary_data = summary_file.write(strSummary)
+      print("woooohooo")
+      summary_file.close()
+      summary_file = open(filepath,'r')
       summary_data = summary_file.read()
       summary_file.close()
 
