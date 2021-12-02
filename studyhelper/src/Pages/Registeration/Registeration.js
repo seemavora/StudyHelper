@@ -23,8 +23,10 @@ export default function Registeration() {
             body: JSON.stringify(form)
         })
 
-        console.log(response);
-        console.log(response.json());
+        if (response.status === 200) {
+            localStorage.setItem('ID', '248dndgkxq827yvm219p0208nbm2')
+            window.location = '/Collection'
+        }
     }
 
     const changeHandler = (e) => {
