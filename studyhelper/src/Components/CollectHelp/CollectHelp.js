@@ -17,31 +17,30 @@ export const collection = {
 export const notecard = {
   notecards: [
     {
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
-      answer: 'trueeeeeeeeeeeeeeeee'
+      text: 'What is the brain primarily made up of?',
+      answer: 'neurons'
     },
     {
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
-      answer: 'faaaaaaaaaaaaaaaalse'
+      text: 'Your brain is a muscle',
+      answer: 'true'
     },
     {
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
-      answer: 'maybe'
+      text: 'How do you grow your brain?',
+      answer: 'allow yourself to struggle with things, challenge your brain.'
     }
   ]
 }
-
 export const question = {
   question: [
     {
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
-      options: ['falase', 'falsey', 'untrue', 'trueeeeeeeeeeeeeeeee'],
-      answer: 'trueeeeeeeeeeeeeeeee'
+      text: 'What is the brain primarily made up of?',
+      options: ['neurons', 'mitochondria', 'protons', 'blood'],
+      answer: 'neurons'
     },
     {
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
-      options: ['falase', 'falsey', 'untrue', 'trueeeeeeeeeeeeeeeee'],
-      answer: 'faaaaaaaaaaaaaaaalse'
+      text: 'Is your brain a muscle?',
+      options: ['yes', 'no', 'partially', '80%'],
+      answer: 'yes'
     },
   ]
 }
