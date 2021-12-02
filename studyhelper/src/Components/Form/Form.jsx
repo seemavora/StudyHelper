@@ -37,7 +37,7 @@ export const LoginForm = (props) => {
         </div>
 
         <div className='form-links'>
-          <a href='/register'>Register</a>
+          <a href='/Register'>Register</a>
 
           <Button
             children={'Login'}
