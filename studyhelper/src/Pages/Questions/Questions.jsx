@@ -14,9 +14,7 @@ const Questions = () => {
 
   useEffect(() => {
     if (localCards) {
-      console.log();
-
-      setFlashcards(JSON.parse(localStorage.getItem('questions')).question);
+      setFlashcards(JSON.parse(localCards).cards);
     } else {
       const jsonCards = {
         cards: [...question.question],
@@ -27,6 +25,8 @@ const Questions = () => {
       setFlashcards(question.question);
     }
   }, [localCards]);
+
+  console.log(flashcards);
 
   const addCard = () => {
     setNewCard(true);
