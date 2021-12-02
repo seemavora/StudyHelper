@@ -16,7 +16,7 @@ const Summary = (props) => {
         setSummary(props.data.message.split(' '));
         setTimeout((x) => {
           setRender(true);
-        }, 500);
+        }, 1500);
       }
     },
 
@@ -60,10 +60,7 @@ const Summary = (props) => {
       >
         <div className='summary-header'>
           <div className='summary-header-title'>
-            <p>
-              Summary: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores, reiciendis numquam.
-            </p>
+            <p>Summary: How to grow your brain</p>
           </div>
           <div className='summary-header-edit'>
             <img onClick={props.edit} src={Edit} alt='' />

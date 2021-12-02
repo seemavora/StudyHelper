@@ -1,8 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import { Button } from '../../Components/Button/Button';
 import PortalPreSubmit from '../../Components/PortalPreSubmit/PortalPreSubmit';
 import Summary from '../../Components/Summary/Summary';
+
+import { baseSummary } from '../../Components/CollectHelp/CollectHelp';
 
 import './Portal.css';
 
@@ -14,25 +16,15 @@ const Portal = () => {
 
   const newSummary = useRef();
 
-  useEffect(() => {
-    const selectSum = localStorage.getItem('sum-selected');
-    if (selectSum) {
-      setSummary({ message: localStorage.getItem('sum-message') });
-      setSubmitted(true);
-      localStorage.removeItem('sum-selected');
-    }
-  }, []);
+  const localSum = localStorage.getItem('summary');
 
   const inputChange = (e) => {
-    console.log(e.target.value);
     setLink(e.target.value);
   };
 
   const getSummary = async (e) => {
     e.preventDefault();
-    console.log(link);
 
-    console.log(setLink);
     const response = await fetch('/api/summary/', {
       method: 'POST',
       headers: {
@@ -52,15 +44,24 @@ const Portal = () => {
   };
 
   const onClick = async (e) => {
-    await getSummary(e)
-      .catch()
-      .then((summary) => {
-        setSummary(summary);
+    if (link !== 'https://www.youtube.com/watch?v=1DKaJ41_zJo') {
+      await getSummary(e)
+        .catch()
+        .then((summary) => {
+          setSummary(summary);
+        });
+    } else {
+      if (localSum) {
+        setSummary({ message: localSum });
+      } else {
+        localStorage.setItem('summary', baseSummary.text);
+        setSummary({ message: baseSummary.text });
+      }
+    }
 
-        if (!submitted) {
-          setSubmitted(true);
-        }
-      });
+    if (!submitted) {
+      setSubmitted(true);
+    }
   };
 
   const toggleEdit = () => {
@@ -73,12 +74,7 @@ const Portal = () => {
   };
 
   const save = (e) => {
-    localStorage.setItem(
-      'sum-meta',
-      `lorem epsum something something;Summary;12/3/21;${link}`
-    );
-
-    localStorage.setItem('sum-message', summary.message);
+    localStorage.setItem('summary', summary.message);
     window.location = '/Collection';
   };
 

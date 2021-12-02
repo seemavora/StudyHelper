@@ -7,6 +7,8 @@ import { collection } from '../../Components/CollectHelp/CollectHelp';
 import './Collection.css';
 
 const Collection = (props) => {
+  const sumData = localStorage.getItem('summary');
+
   return (
     <div className='collect-body'>
       <div className='collect-body-wrapper'>

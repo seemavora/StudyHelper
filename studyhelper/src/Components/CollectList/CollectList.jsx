@@ -1,10 +1,10 @@
 import React from 'react';
 
+import { baseSummary } from '../CollectHelp/CollectHelp';
+
 import './CollectList.css';
 
 const CollectList = ({ list }) => {
-  console.log(list);
-
   const getLink = (e) => {
     switch (e) {
       case 'Summary':
@@ -18,20 +18,18 @@ const CollectList = ({ list }) => {
     }
   };
 
-  const sumData = localStorage.getItem('sum-meta');
+  const sumData = localStorage.getItem('summary');
 
   const process = (e) => {
-    let arr = e.split(';');
-
     return {
-      title: arr[0],
-      type: arr[1],
-      date: arr[2],
-      link: arr[3],
+      title: e.meta.title,
+      type: e.meta.type,
+      date: e.meta.date,
+      link: e.meta.link,
     };
   };
 
-  let data = sumData ? process(sumData) : undefined;
+  let data = sumData ? process(baseSummary) : undefined;
 
   const selectSum = () => {
     console.log('hello');
@@ -48,36 +46,38 @@ const CollectList = ({ list }) => {
       </div>
       <div className='collList-content'>
         {data ? (
-          <div className='collList-content-wrapper' key={data}>
-            <div className='collList-content-item collList-title'>
-              <a href={getLink(data.type)} onClick={selectSum}>
-                {data.title}
-              </a>
+          <>
+            <div className='collList-content-wrapper' key={data}>
+              <div className='collList-content-item collList-title'>
+                <a href={getLink(data.type)} onClick={selectSum}>
+                  {data.title}
+                </a>
+              </div>
+              <div className='collList-content-item'>{data.type}</div>
+              <div className='collList-content-item'>{data.date}</div>
+              <div className='collList-content-item collList-video'>
+                <a href={data.link}>Link</a>
+              </div>
             </div>
-            <div className='collList-content-item'>{data.type}</div>
-            <div className='collList-content-item'>{data.date}</div>
-            <div className='collList-content-item collList-video'>
-              <a href={data.link}>Link</a>
-            </div>
-          </div>
+
+            {list.collection.map((x, index) => {
+              return (
+                <div className='collList-content-wrapper' key={index}>
+                  <div className='collList-content-item collList-title'>
+                    <a href={getLink(x.type)}>{x.title}</a>
+                  </div>
+                  <div className='collList-content-item'>{x.type}</div>
+                  <div className='collList-content-item'>{x.date}</div>
+                  <div className='collList-content-item collList-video'>
+                    <a href={x.link}>Link</a>
+                  </div>
+                </div>
+              );
+            })}
+          </>
         ) : (
           <></>
         )}
-
-        {list.collection.map((x, index) => {
-          return (
-            <div className='collList-content-wrapper' key={index}>
-              <div className='collList-content-item collList-title'>
-                <a href={getLink(x.type)}>{x.title}</a>
-              </div>
-              <div className='collList-content-item'>{x.type}</div>
-              <div className='collList-content-item'>{x.date}</div>
-              <div className='collList-content-item collList-video'>
-                <a href={x.link}>Link</a>
-              </div>
-            </div>
-          );
-        })}
       </div>
     </div>
   );
