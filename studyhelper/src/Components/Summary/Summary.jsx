@@ -16,7 +16,7 @@ const Summary = (props) => {
         setSummary(props.data.message.split(' '));
         setTimeout((x) => {
           setRender(true);
-        }, 1500);
+        }, 2000);
       }
     },
 

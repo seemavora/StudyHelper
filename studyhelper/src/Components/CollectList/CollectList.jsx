@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { baseSummary } from '../CollectHelp/CollectHelp';
 
 import './CollectList.css';
 
 const CollectList = ({ list }) => {
+  useEffect(() => {
+    localStorage.removeItem('active');
+  }, []);
+
   const getLink = (e) => {
     switch (e) {
       case 'Summary':
@@ -31,8 +35,8 @@ const CollectList = ({ list }) => {
 
   let data = sumData ? process(baseSummary) : undefined;
 
-  const selectSum = () => {
-    localStorage.setItem('sum-selected', true);
+  const setActive = (type) => {
+    localStorage.setItem('active', type);
   };
 
   return (
@@ -48,7 +52,10 @@ const CollectList = ({ list }) => {
           <>
             <div className='collList-content-wrapper' key={data}>
               <div className='collList-content-item collList-title'>
-                <a href={getLink(data.type)} onClick={selectSum}>
+                <a
+                  onClick={() => setActive(data.type)}
+                  href={getLink(data.type)}
+                >
                   {data.title}
                 </a>
               </div>
@@ -63,7 +70,9 @@ const CollectList = ({ list }) => {
               return (
                 <div className='collList-content-wrapper' key={index}>
                   <div className='collList-content-item collList-title'>
-                    <a href={getLink(x.type)}>{x.title}</a>
+                    <a onClick={() => setActive(x.type)} href={getLink(x.type)}>
+                      {x.title}
+                    </a>
                   </div>
                   <div className='collList-content-item'>{x.type}</div>
                   <div className='collList-content-item'>{x.date}</div>

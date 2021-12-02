@@ -26,6 +26,8 @@ const Questions = () => {
     }
   }, [localCards]);
 
+  console.log(flashcards);
+
   const addCard = () => {
     setNewCard(true);
   };
@@ -48,7 +50,7 @@ const Questions = () => {
 
   const saveSet = (e) => {
     const jsonCard = {
-      question: [...flashcards],
+      cards: [...flashcards],
     };
 
     localStorage.setItem('questions', JSON.stringify(jsonCard));

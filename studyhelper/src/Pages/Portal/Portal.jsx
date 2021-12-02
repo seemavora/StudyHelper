@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import { Button } from '../../Components/Button/Button';
 import PortalPreSubmit from '../../Components/PortalPreSubmit/PortalPreSubmit';
@@ -17,6 +17,15 @@ const Portal = () => {
   const newSummary = useRef();
 
   const localSum = localStorage.getItem('summary');
+  const isSumActive = localStorage.getItem('active');
+
+  useEffect(() => {
+    if (isSumActive === 'Summary' && localSum) {
+      setSummary({ message: localSum });
+      setSubmitted(true);
+      localStorage.removeItem('active');
+    }
+  }, []);
 
   const inputChange = (e) => {
     setLink(e.target.value);
