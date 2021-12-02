@@ -24,7 +24,6 @@ const Login = () => {
 
     //local storage for user ID
     response.json().then((e) => {
-      console.log(e.ID);
       localStorage.setItem('ID', e.ID);
       window.location = '/Collection';
     });

@@ -32,7 +32,6 @@ const CollectList = ({ list }) => {
   let data = sumData ? process(baseSummary) : undefined;
 
   const selectSum = () => {
-    console.log('hello');
     localStorage.setItem('sum-selected', true);
   };
 

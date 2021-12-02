@@ -28,8 +28,6 @@ const NoteCard = () => {
     }
   }, [localCards]);
 
-  console.log(flashcards);
-
   const addCard = () => {
     setNewCard(true);
   };

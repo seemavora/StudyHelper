@@ -42,7 +42,6 @@ const Summary = (props) => {
 
     setDictActive(true);
     setDictContent(response);
-    console.log(response);
   };
 
   const disableOverlay = () => {

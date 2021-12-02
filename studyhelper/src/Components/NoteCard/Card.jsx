@@ -31,12 +31,6 @@ export default function Flashcard({
   };
 
   const handleSave = () => {
-    console.log(
-      [...cardCreate.current.children[2].children].map((x) => {
-        return x.value;
-      })
-    );
-
     const obj =
       mode === 'card'
         ? {

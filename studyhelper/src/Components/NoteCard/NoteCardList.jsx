@@ -15,8 +15,6 @@ export default function NoteCardList({
       {newCard ? <Card mode={mode} newCard={newCard} save={save} /> : <></>}
 
       {flashcards.map((flashcard, index) => {
-        // console.log(index);
-
         return (
           <Card
             flashcard={flashcard}
