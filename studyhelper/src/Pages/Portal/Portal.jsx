@@ -13,6 +13,7 @@ const Portal = () => {
   const [submitted, setSubmitted] = useState(false);
   const [summary, setSummary] = useState('');
   const [edit, setEdit] = useState(false);
+  const [error, setError] = useState(false);
 
   const newSummary = useRef();
 
@@ -52,24 +53,32 @@ const Portal = () => {
     return message;
   };
 
-  const onClick = async (e) => {
-    if (link !== 'https://www.youtube.com/watch?v=1DKaJ41_zJo') {
-      await getSummary(e)
-        .catch()
-        .then((summary) => {
-          setSummary(summary);
-        });
-    } else {
-      if (localSum) {
-        setSummary({ message: localSum });
-      } else {
-        localStorage.setItem('summary', baseSummary.text);
-        setSummary({ message: baseSummary.text });
-      }
-    }
+  const verifyLink = (url) => {
+    return url.startsWith('https://www.youtube.com/watch?v=');
+  };
 
-    if (!submitted) {
-      setSubmitted(true);
+  const onClick = async (e) => {
+    if (verifyLink(link)) {
+      if (link !== 'https://www.youtube.com/watch?v=1DKaJ41_zJo') {
+        await getSummary(e)
+          .catch()
+          .then((summary) => {
+            setSummary(summary);
+          });
+      } else {
+        if (localSum) {
+          setSummary({ message: localSum });
+        } else {
+          localStorage.setItem('summary', baseSummary.text);
+          setSummary({ message: baseSummary.text });
+        }
+      }
+
+      if (!submitted) {
+        setSubmitted(true);
+      }
+    } else {
+      setError(true);
     }
   };
 
@@ -90,7 +99,7 @@ const Portal = () => {
   return (
     <div className='portal-body'>
       <div className='portal-form'>
-        <SearchBar textChange={inputChange} />
+        <SearchBar error={error} textChange={inputChange} />
 
         <div className='portal-submit'>
           <div className='portal-submit-button'>

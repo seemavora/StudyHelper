@@ -14,3 +14,7 @@
 .search-view > form > input:focus {
   outline: none;
 }
+
+.error::placeholder {
+  color: red;
+}
