@@ -32,7 +32,7 @@ const NavBar = (props) => {
 
   const id = localStorage.getItem('ID');
 
-  if (!id && profLogic.includes(page)) {
+  if ((!id && profLogic.includes(page)) || navLogic[page] === undefined) {
     window.location = '/';
   }
 
