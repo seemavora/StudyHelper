@@ -3,8 +3,6 @@ import { menuItems } from "./menuItems"
 import './NavBar.css'
 import logo from "../../static/img/ScribeLogo.png";
 
-console.log(logo);
-
 class NavBar extends React.Component {
 
     state = { clicked: false }

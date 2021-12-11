@@ -7,6 +7,19 @@ import logo from '../../static/img/logo.png';
 
 const page = window.location.pathname;
 
+const navLogic = {
+  '/': ['Home', 'Contact Us', 'Login'],
+  '/ContactUs': ['Home', 'Contact Us', 'Login'],
+  '/Login': ['Home', 'Contact Us', 'Register'],
+  '/Register': ['Home', 'Contact Us', 'Login'],
+  '/Portal': ['Home', 'Contact Us'],
+  '/Collection': ['Home', 'Contact Us'],
+  '/NoteCard': ['Home', 'Contact Us'],
+  '/Questions': ['Home', 'Contact Us'],
+};
+
+const profLogic = ['/Portal', '/Collection', '/NoteCard', '/Questions'];
+
 // Shouldn't be here BUT it is. Will remove later
 const token = 'validuser12345';
 
@@ -17,33 +30,30 @@ const portalStyle = {
 const NavBar = (props) => {
   if (page === '/ContactUs') return <></>;
 
+  const id = localStorage.getItem('ID');
+
+  if ((!id && profLogic.includes(page)) || navLogic[page] === undefined) {
+    window.location = '/';
+  }
+
   return (
     <div
       className='navbar-navbar'
-      style={page === '/Portal' ? portalStyle : {}}
+      style={profLogic.includes(page) ? portalStyle : {}}
     >
       <img className='navbar-logo' src={logo} alt='' />
       <ul className='navbar-nav-links'>
         {links.map((x) => {
-          // prettier-ignore
-          if (
-            x.url === page ||
-            (page === '/Portal' &&
-            !['Home', 'Contact Us'].includes(x.title)) ||
-            (page !== '/Collection' && x.title === 'Portal') ||
-            (page === '/' && x.title === 'Register')
-          ) {
-            return <li style={{ display: 'none' }} key={x.url}></li>;
-          } else {
-            return (
-              <li key={x.url}>
-                <a href={x.url}>{x.title}</a>
-              </li>
-            );
-          }
+          let valid = navLogic[page].includes(x.title);
+
+          return (
+            <li style={!valid ? { display: 'none' } : { ...this }} key={x.url}>
+              <a href={x.url}>{valid ? x.title : ''}</a>
+            </li>
+          );
         })}
 
-        {token === 'validuser12345' && page === '/Portal' ? (
+        {token === 'validuser12345' && profLogic.includes(page) ? (
           <li>
             <ProfileIcon />
           </li>

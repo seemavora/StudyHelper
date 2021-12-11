@@ -1,0 +1,36 @@
+.collect-body {
+  background-color: #ffb672;
+  width: 100vw;
+  min-height: 100vh;
+  padding-top: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.collect-body-wrapper {
+  margin-top: 4em;
+  width: 85%;
+  height: 100%;
+}
+
+.collect-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.collect-add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.collect-add-button > a {
+  margin-right: 10px;
+}
+
+.collect-title {
+  margin-top: 10px;
+  margin-left: 1em;
+  font-size: 30px;
+}

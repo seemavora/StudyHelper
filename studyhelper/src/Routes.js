@@ -5,6 +5,9 @@ import Homepage from "./Pages/Homepage/Homepage";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import Login from "./Pages/Login/Login"
 import Portal from './Pages/Portal/Portal'
+import Collection from './Pages/Collection/Collection';
+import NoteCard from './Pages/NoteCard/NoteCard';
+import Questions from './Pages/Questions/Questions';
 
 export default function Routes(props) {
   const routes = [
@@ -27,7 +30,18 @@ export default function Routes(props) {
     {
       path: '/Portal',
       component: Portal
-
+    },
+    {
+      path: '/Collection',
+      component: Collection
+    },
+    {
+      path: '/NoteCard',
+      component: NoteCard
+    },
+    {
+      path: '/Questions',
+      component: Questions
     }
   ];
 

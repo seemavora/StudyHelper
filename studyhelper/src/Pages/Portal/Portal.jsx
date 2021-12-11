@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import { Button } from '../../Components/Button/Button';
 import PortalPreSubmit from '../../Components/PortalPreSubmit/PortalPreSubmit';
 import Summary from '../../Components/Summary/Summary';
+
+import { baseSummary } from '../../Components/CollectHelp/CollectHelp';
 
 import './Portal.css';
 
@@ -11,18 +13,28 @@ const Portal = () => {
   const [submitted, setSubmitted] = useState(false);
   const [summary, setSummary] = useState('');
   const [edit, setEdit] = useState(false);
+  const [error, setError] = useState(false);
+
+  const newSummary = useRef();
+
+  const localSum = localStorage.getItem('summary');
+  const isSumActive = localStorage.getItem('active');
+
+  useEffect(() => {
+    if (isSumActive === 'Summary' && localSum) {
+      setSummary({ message: localSum });
+      setSubmitted(true);
+      localStorage.removeItem('active');
+    }
+  }, []);
 
   const inputChange = (e) => {
-    console.log(e.target.value);
     setLink(e.target.value);
   };
 
   const getSummary = async (e) => {
     e.preventDefault();
-    console.log(link);
 
-    const dummyLink = setLink;
-    console.log(setLink)
     const response = await fetch('/api/summary/', {
       method: 'POST',
       headers: {
@@ -41,31 +53,53 @@ const Portal = () => {
     return message;
   };
 
+  const verifyLink = (url) => {
+    return url.startsWith('https://www.youtube.com/watch?v=');
+  };
+
   const onClick = async (e) => {
-    await getSummary(e)
-      .catch()
-      .then((summary) => {
-        setSummary(summary);
-
-        if (!submitted) {
-          setSubmitted(true);
+    if (verifyLink(link)) {
+      if (link !== 'https://www.youtube.com/watch?v=1DKaJ41_zJo') {
+        await getSummary(e)
+          .catch()
+          .then((summary) => {
+            setSummary(summary);
+          });
+      } else {
+        if (localSum) {
+          setSummary({ message: localSum });
+        } else {
+          localStorage.setItem('summary', baseSummary.text);
+          setSummary({ message: baseSummary.text });
         }
-      });
+      }
+
+      if (!submitted) {
+        setSubmitted(true);
+      }
+    } else {
+      setError(true);
+    }
   };
 
-  const editContent = () => {
-    setEdit(true);
+  const toggleEdit = () => {
+    if (!edit) {
+      setEdit(true);
+    } else {
+      setSummary({ message: newSummary.current.value });
+      setEdit(false);
+    }
   };
 
-  const editDone = () => {
-    setSummary('something');
-    setEdit(false);
+  const save = (e) => {
+    localStorage.setItem('summary', summary.message);
+    window.location = '/Collection';
   };
 
   return (
     <div className='portal-body'>
       <div className='portal-form'>
-        <SearchBar textChange={inputChange} />
+        <SearchBar error={error} textChange={inputChange} />
 
         <div className='portal-submit'>
           <div className='portal-submit-button'>
@@ -79,7 +113,14 @@ const Portal = () => {
         </div>
       </div>
       <PortalPreSubmit view={submitted === true ? 'hide' : 'show'} />
-      <Summary view={submitted} data={summary} />
+      <Summary
+        view={submitted}
+        data={summary}
+        edit={toggleEdit}
+        editting={edit}
+        setRef={newSummary}
+        save={save}
+      />
     </div>
   );
 };

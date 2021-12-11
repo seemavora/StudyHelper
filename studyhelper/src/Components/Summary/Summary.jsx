@@ -13,10 +13,10 @@ const Summary = (props) => {
   useEffect(
     (x) => {
       if (props.view) {
+        setSummary(props.data.message.split(' '));
         setTimeout((x) => {
           setRender(true);
-          setSummary(props.data.message.split(' '));
-        }, 500);
+        }, 2000);
       }
     },
 
@@ -42,7 +42,6 @@ const Summary = (props) => {
 
     setDictActive(true);
     setDictContent(response);
-    console.log(response);
   };
 
   const disableOverlay = () => {
@@ -57,72 +56,79 @@ const Summary = (props) => {
       <div
         className={`summary-container-overlay-${dictActive ? 'show' : 'hide'}`}
         onClick={disableOverlay}
-      ></div>
-      <div className='summary-header'>
-        <div className='summary-header-title'>
-          <p>
-            Summary: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Asperiores, reiciendis numquam.
-          </p>
+      >
+        <div className='summary-header'>
+          <div className='summary-header-title'>
+            <p>Summary: How to grow your brain</p>
+          </div>
+          <div className='summary-header-edit'>
+            <img onClick={props.edit} src={Edit} alt='' />
+          </div>
+          <div className='summary-header-save'>
+            <Button
+              children='Save'
+              buttonStyle='btn--primary--solid'
+              buttonSize='btn--medium'
+              onClick={(e) => props.save(summary)}
+            />
+          </div>
         </div>
-        <div className='summary-header-edit'>
-          <img src={Edit} alt='' />
-        </div>
-        <div className='summary-header-save'>
-          <Button
-            children='Save'
-            buttonStyle='btn--primary--solid'
-            buttonSize='btn--medium'
-          />
-        </div>
-      </div>
 
-      <div className='summary-content'>
-        <div className='summary-content-wrapper'>
-          <div>
-            {summary.map((x, index) => {
-              return (
-                <span key={index}>
-                  <span
-                    className='summary-content-item'
-                    onClick={dictionaryCall}
-                  >
-                    {x}
+        <div className='summary-content'>
+          <div className='summary-content-wrapper'>
+            {!props.editting ? (
+              summary.map((x, index) => {
+                return (
+                  <span key={index}>
+                    <span
+                      className='summary-content-item'
+                      onClick={dictionaryCall}
+                    >
+                      {x}
+                    </span>
+                    <span>{` `}</span>
                   </span>
-                  <span>{` `}</span>
-                </span>
-              );
-            })}
+                );
+              })
+            ) : (
+              <textarea
+                ref={props.setRef}
+                className='portal-edit-box'
+                defaultValue={props.data.message}
+              ></textarea>
+            )}
           </div>
         </div>
-      </div>
 
-      {dictActive && dictContent ? (
-        <div className='portal-dict-popup'>
-          <div className='portal-dict-content'>
-            <div className='portal-dict-title'>
-              {`${dictContent.response[0].word} | ${dictContent.response[0].phonetic}`}
-            </div>
-            <div className='portal-dict-body'>
-              <p>{`Part of Speech: ${dictContent.response[0].meanings[0].partOfSpeech}`}</p>
-              {dictContent.response[0].meanings[0].definitions.map(
-                (item, index) => {
-                  return (
-                    <>
-                      <p>{`Definition (${index}): ${item.definition}`}</p>
-                      {`Synonyms: ${item.synonyms.map((s) => {
-                        return ' ' + s;
-                      })}`}
-                    </>
-                  );
-                }
-              )}
+        {dictActive && dictContent ? (
+          <div className='portal-dict-popup'>
+            <div className='portal-dict-content'>
+              <div className='portal-dict-title'>
+                {`${dictContent.response[0].word} | ${dictContent.response[0].phonetic}`}
+              </div>
+              <div className='portal-dict-body'>
+                <p>{`Part of Speech: ${dictContent.response[0].meanings[0].partOfSpeech}`}</p>
+                {dictContent.response[0].meanings[0].definitions.map(
+                  (item, index) => {
+                    return (
+                      <>
+                        <p
+                          key={item + ' ' + index}
+                        >{`Definition (${index}): ${item.definition}`}</p>
+                        {`Synonyms: ${item.synonyms.map((s) => {
+                          return ' ' + s;
+                        })}`}
+                      </>
+                    );
+                  }
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      ) : (
-        <></>
-      )}
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 };
